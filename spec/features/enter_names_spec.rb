@@ -5,6 +5,6 @@ feature 'testing name forms' do
     fill_in :player_2_name, with: 'Salpal'
 
     click_button 'Enter game'
-    expect(page).to have_content 'Unicorn Habs vs. Unicorn Salpal'
+    expect(page).to have_content 'Alastair Habs vs. Alastair Salpal'
   end
 end
