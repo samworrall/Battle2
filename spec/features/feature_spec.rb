@@ -25,13 +25,13 @@ feature 'reduce pitta points by 10' do
     sign_in_and_play
     click_button'BREAD PITT'
     click_button'KEEP FIGHTING!'
-    expect(page.find('h2', id: 'player_1').text).to eq "Habs: 90 Pit(ta) Points"
+    expect(page.find('h2', id: 'p1').text).to eq "Habs: 90 Pit(ta) Points"
   end
 
   scenario 'clicks keep fighting, and pitta points reduced by 10' do
     sign_in_and_play
     click_button'BREAD PITT'
     click_button'KEEP FIGHTING!'
-    expect(page.find('h2', id: 'player_2').text).to eq "Salpal: 90 Pit(ta) Points"
+    expect(page.find('h2', id: 'p2').text).to eq "Salpal: 90 Pit(ta) Points"
   end
 end

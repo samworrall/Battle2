@@ -1,9 +1,9 @@
 class Game
-  attr_reader :player1, :player2
+  attr_reader :player_1, :player_2
 
-  def initialize(player1, player2)
-    @player1 = player1
-    @player2 = player2
+  def initialize(player_1, player_2)
+    @player_1 = player_1
+    @player_2 = player_2
   end
 
   def bread_pitt(player)
