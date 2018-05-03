@@ -16,4 +16,11 @@ describe Game, :game do
       expect(game.player_1.health).to eq 90
     end
   end
+
+  describe '#swiss_roll' do
+    it 'Swaps the current player' do
+      game.bread_pitt(player_1)
+      expect(game.current_player).to eq player_2
+    end
+  end
 end

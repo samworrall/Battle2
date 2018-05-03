@@ -23,8 +23,10 @@ end
 feature 'reduce pitta points by 10' do
   scenario 'clicks keep fighting, and pitta points reduced by 10' do
     sign_in_and_play
+    2.times {
     click_button'BREAD PITT'
     click_button'KEEP FIGHTING!'
+    }
     expect(page.find('h2', id: 'p1').text).to eq "Habs: 90 Pit(ta) Points"
   end
 

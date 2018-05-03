@@ -25,8 +25,13 @@ class Battle < Sinatra::Base
 post '/crust' do
     @player_1_name = $game.player_1.name
     @player_2_name = $game.player_2.name
-    @player_1_points = $game.player_1.reduce_health
-    @player_2_points = $game.player_2.reduce_health
+
+    @current_player = $game.current_player
+    @other_player = $game.other_player
+    
+    $game.bread_pitt(@other_player)
+    @player_1_points = $game.player_1.health
+    @player_2_points = $game.player_2.health
     erb(:crust)
   end
 
