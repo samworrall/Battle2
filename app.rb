@@ -18,12 +18,16 @@ class Battle < Sinatra::Base
   get '/play' do
     @player_1_name = $player_1.name
     @player_2_name = $player_2.name
+    @player_1_points = $player_1.health
+    @player_2_points = $player_2.health
     erb(:play)
   end
 
-  get '/crust' do
+post '/crust' do
     @player_1_name = $player_1.name
     @player_2_name = $player_2.name
+    @player_1_points = $player_1.reduce_health
+    @player_2_points = $player_2.reduce_health
     erb(:crust)
   end
 
