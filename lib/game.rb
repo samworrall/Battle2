@@ -16,4 +16,8 @@ class Game
   def swiss_roll
     @current_player, @other_player = @other_player, @current_player
   end
+
+  def win?
+    @current_player.health == 0
+  end
 end

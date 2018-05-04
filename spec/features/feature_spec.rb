@@ -36,4 +36,16 @@ feature 'reduce pitta points by 10' do
     click_button'KEEP FIGHTING!'
     expect(page.find('h2', id: 'p2').text).to eq "Salpal: 90 Pit(ta) Points"
   end
+
+  feature 'Ends game if player has 0 health' do
+    scenario 'A player has 0 health' do
+      sign_in_and_play
+      18.times {
+        click_button'BREAD PITT'
+        click_button'KEEP FIGHTING!'
+      }
+      click_button'BREAD PITT'
+      expect(page).to have_content 'Habs has won!'
+    end
+  end
 end

@@ -19,11 +19,12 @@ class Battle < Sinatra::Base
     erb(:play)
   end
 
-post '/crust' do
+  post '/crust' do
     @game = $game
     @game.bread_pitt(@game.other_player)
-    erb(:crust)
+    @game.win? ? erb(:winner) : erb(:crust)
   end
 
   run! if app_file == $0
+
 end
