@@ -1,6 +1,14 @@
 class Game
   attr_reader :player_1, :player_2, :current_player, :other_player
 
+  def self.game_start(player_1, player_2)
+    @game = self.new(player_1, player_2)
+  end
+
+  def self.game
+    @game
+  end
+
   def initialize(player_1, player_2)
     @player_1 = player_1
     @player_2 = player_2

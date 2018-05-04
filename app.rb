@@ -2,6 +2,9 @@ require 'sinatra/base'
 require './lib/alastair.rb'
 require './lib/game.rb'
 class Battle < Sinatra::Base
+  before do
+    @game = Game.game
+  end
 
   enable :sessions
 
@@ -10,17 +13,15 @@ class Battle < Sinatra::Base
   end
 
   post '/names' do
-    $game = Game.new(Alastair.new(params[:player_1_name]), Alastair.new(params[:player_2_name]))
+    Game.game_start(Alastair.new(params[:player_1_name]), Alastair.new(params[:player_2_name]))
     redirect '/play'
   end
 
   get '/play' do
-    @game = $game
     erb(:play)
   end
 
   post '/crust' do
-    @game = $game
     @game.bread_pitt(@game.other_player)
     @game.win? ? erb(:winner) : erb(:crust)
   end
