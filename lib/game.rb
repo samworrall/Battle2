@@ -26,6 +26,6 @@ class Game
   end
 
   def win?
-    @current_player.health == 0
+    @current_player.health <= 0
   end
 end

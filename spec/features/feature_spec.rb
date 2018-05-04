@@ -27,25 +27,26 @@ feature 'reduce pitta points by 10' do
     click_button'BREAD PITT'
     click_button'KEEP FIGHTING!'
     }
-    expect(page.find('h2', id: 'p1').text).to eq "Habs: 90 Pit(ta) Points"
+    expect(page).to have_no_content "Habs: 100 Pit(ta) Points"
   end
 
   scenario 'clicks keep fighting, and pitta points reduced by 10' do
     sign_in_and_play
     click_button'BREAD PITT'
     click_button'KEEP FIGHTING!'
-    expect(page.find('h2', id: 'p2').text).to eq "Salpal: 90 Pit(ta) Points"
+    expect(page).to have_no_content "Salpal: 100 Pit(ta) Points"
   end
 
   feature 'Ends game if player has 0 health' do
     scenario 'A player has 0 health' do
+      srand(2)
       sign_in_and_play
-      18.times {
+      15.times {
         click_button'BREAD PITT'
         click_button'KEEP FIGHTING!'
       }
       click_button'BREAD PITT'
-      expect(page).to have_content 'Habs has won!'
+      expect(page).to have_content 'Salpal has won!'
     end
   end
 end

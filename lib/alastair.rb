@@ -7,6 +7,6 @@ def initialize(name)
 end
 
 def reduce_health
-  @health -= 10
+  @health -= rand(5..20)
 end
 end
