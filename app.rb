@@ -22,19 +22,27 @@ class Battle < Sinatra::Base
   end
 
   post '/crust' do
+    attack_sequence
+  end
+
+  run! if app_file == $0
+
+  private
+
+  def run_attack
     @game.bread_pitt(@game.other_player)
+  end
+
+  def attack_sequence
+    run_attack
     if @game.win?
       erb(:winner)
     elsif @game.current_player.name == "AI"
-      @game.bread_pitt(@game.other_player)
+      run_attack
       @game.win? ? erb(:winner) : erb(:crust2)
     else
       erb(:crust)
     end
-
-
   end
-
-  run! if app_file == $0
 
 end
