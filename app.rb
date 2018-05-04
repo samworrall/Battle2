@@ -18,24 +18,18 @@ class Battle < Sinatra::Base
   end
 
   get '/play' do
-    redirect '/crust2' if @game.current_player.name == "AI"
     erb(:play)
-
   end
 
   post '/crust' do
     @game.bread_pitt(@game.other_player)
-     erb(:winner) if @game.win?
-  end
-
-  get '/crust2' do
-    @game.bread_pitt(@game.other_player)
     erb(:winner) if @game.win?
-    redirect('/play')
-
+    if @game.current_player.name == "AI"
+      @game.bread_pitt(@game.other_player)
+      erb(:winner) if @game.win?
+    end
+    erb(:crust)
   end
-
-
 
   run! if app_file == $0
 
