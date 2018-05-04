@@ -3,6 +3,7 @@
 
   <h2 style='text-align: center; color: darkcyan; font-size: 40px; font-family: cursive'>Battling to the death for the last sourdough!</h1>
   <h2 style='text-align: center; color: darkSlateGrey; font-size: 35px; font-family: cursive'>Upper crust sign in!</h2>
+    <h2>Multiplayer Game</h2>
   <form style='text-align: center; color: navy; margin-top: 40px; font-family: cursive' action="/names" method="post">
 
     <label for="player_1_name">
@@ -18,6 +19,18 @@
     <input style='color: purple; font-family: cursive' type="submit" value="Enter game">
 
   </form>
+
+  <h2>Single Player</h2>
+<form style='text-align: center; color: navy; margin-top: 40px; font-family: cursive' action="/names" method="post">
+
+  <label for="player_1_name">
+    <strong style="size: 20px">ALASTAIR THE FIRST</strong>
+    <input type="text" name="player_1_name">
+  </label>
+    <input type="hidden" name="player_2_name" value="AI">
+  <input style='color: purple; font-family: cursive' type="submit" value="Enter game">
+
+</form>
 
   <div style='text-align: center; margin-top: 70px'>
     <img style='height: 500px' src='https://media.tenor.com/images/caeb341677a8af3cafb9661c95feb70c/tenor.gif'>

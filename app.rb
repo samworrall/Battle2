@@ -23,12 +23,16 @@ class Battle < Sinatra::Base
 
   post '/crust' do
     @game.bread_pitt(@game.other_player)
-    erb(:winner) if @game.win?
-    if @game.current_player.name == "AI"
+    if @game.win?
+      erb(:winner)
+    elsif @game.current_player.name == "AI"
       @game.bread_pitt(@game.other_player)
-      erb(:winner) if @game.win?
+      @game.win? ? erb(:winner) : erb(:crust2)
+    else
+      erb(:crust)
     end
-    erb(:crust)
+
+
   end
 
   run! if app_file == $0
